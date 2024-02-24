@@ -44,6 +44,7 @@ posts = [
                 укутывал их, чтобы не испортились от дождя.''',
     },
 ]
+posts = {post['id']: post for post in posts}
 
 
 def index(request):

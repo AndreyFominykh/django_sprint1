@@ -32,9 +32,11 @@ ALLOWED_HOSTS = []
 STATICFILES_DIRS = [
     BASE_DIR / 'static_dev',
 ]
-
+STATIC_URL = '/static/'
 
 INSTALLED_APPS = [
+    'pages.apps.PagesConfig',
+    'blog.apps.BlogConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
