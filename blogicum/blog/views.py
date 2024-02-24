@@ -44,7 +44,7 @@ posts = [
                 укутывал их, чтобы не испортились от дождя.''',
     },
 ]
-posts = {post['id']: post for post in posts}
+posts_id = {post['id']: post for post in posts}
 
 
 def index(request):
@@ -54,10 +54,10 @@ def index(request):
 
 
 def post_detail(request, pk):
-    if pk not in posts:
+    if pk not in posts_id:
         raise Http404("Такой страницы не существует")
     template = 'blog/detail.html'
-    context = {'post': posts[pk]}
+    context = {'post': posts_id[pk]}
     return render(request, template, context)
 
 

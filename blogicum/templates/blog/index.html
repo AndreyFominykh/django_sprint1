@@ -4,9 +4,9 @@
 {% block title %}
   Лента записей
 {% endblock %}
+{% block content %}
   </head>
   <body>	   
-    {% include "includes/header.html" %}
     <main>
       <div class="container py-5">
         <h1>Лента записей</h1>                        
@@ -30,7 +30,7 @@
             {{ post.text|truncatewords:10|linebreaksbr }}
             Всю ночь и весь день шел дождь и дул сильный ...
           </p>
-          <a href="{% url 'blog:post_deatil' post.id %}">Читать полный текст</a>
+          <a href="{% url 'blog:post_detail' post.id %}">Читать полный текст</a>
         </article>
         <hr>
         <article>
@@ -50,7 +50,7 @@
             {{ post.text|truncatewords:10|linebreaksbr }}
             Проснувшись поутру, я увидел, что наш корабль сняло с мели ...
           </p>
-          <a href="{% url 'blog:post_deatil' post.id %}">Читать полный текст</a>
+          <a href="{% url 'blog:post_detail' post.id %}">Читать полный текст</a>
         </article>
         <hr>
         <article>
@@ -70,11 +70,12 @@
             {{ post.text|truncatewords:10|linebreaksbr }}
             Наш корабль, застигнутый в открытом море страшным штормом, потерпел крушение. ...
           </p>
-          <a href="{% url 'blog:post_deatil' post.id %}">Читать полный текст</a>
+          <a href="{% url 'blog:post_detail' post.id %}">Читать полный текст</a>
         </article>
       {% endfor %}                
       </div>
     </main>
+    {% endblock %}
     {% include "includes/footer.html" %}
   </body>
 </html>
