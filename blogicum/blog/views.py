@@ -48,20 +48,23 @@ posts_id = {post['id']: post for post in posts}
 
 
 def index(request):
+    """Показывает ленту записей"""
     template = 'blog/index.html'
     context = {'posts': reversed(posts)}
     return render(request, template, context)
 
 
 def post_detail(request, pk):
-    if pk not in posts_id:
-        raise Http404("Такой страницы не существует")
-    template = 'blog/detail.html'
-    context = {'post': posts_id[pk]}
-    return render(request, template, context)
+    """Полный текст поста"""
+    if pk in posts_id:
+        template = 'blog/detail.html'
+        context = {'post': posts_id[pk]}
+        return render(request, template, context)
+    raise Http404('Такой страницы не существует')
 
 
 def category_posts(request, category_slug):
+    """Посты одной категории"""
     template = 'blog/category.html'
     context = {'category_slug': category_slug}
     return render(request, template, context)
