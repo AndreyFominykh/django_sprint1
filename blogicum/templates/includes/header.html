@@ -1,8 +1,5 @@
 {% load static %}
-{% comment %}
-Внутри тега {% with %} переменная view_name - 
-это синоним для request.resolver_match.view_name
-{% endcomment %}
+
 {% with request.resolver_match.view_name as view_name %}
 <header>
   <nav class="navbar navbar-light" style="background-color: lightskyblue">
@@ -31,4 +28,4 @@
     </div>
   </nav> 
 </header>
-  {% endwith %}
+{% endwith %}

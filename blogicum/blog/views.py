@@ -56,11 +56,11 @@ def index(request):
 
 def post_detail(request, pk):
     """Полный текст поста"""
-    if pk in posts_id:
-        template = 'blog/detail.html'
-        context = {'post': posts_id[pk]}
-        return render(request, template, context)
-    raise Http404('Такой страницы не существует')
+    if pk not in posts_id:
+        raise Http404('Такого поста не существует')
+    template = 'blog/detail.html'
+    context = {'post': posts_id[pk]}
+    return render(request, template, context)
 
 
 def category_posts(request, category_slug):
