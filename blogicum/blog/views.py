@@ -57,7 +57,7 @@ def index(request):
 def post_detail(request, pk):
     """Полный текст поста"""
     if pk not in posts_id:
-        raise Http404('Такого поста не существует')
+        raise Http404(f'Такого поста {pk} не существует')
     template = 'blog/detail.html'
     context = {'post': posts_id[pk]}
     return render(request, template, context)

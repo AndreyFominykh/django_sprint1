@@ -9,7 +9,5 @@
   {% for post in posts %}
   <hr>
     {% include 'includes/article.html' %}
-    <p>{{ post.text|truncatewords:10|linebreaksbr }}</p>
-    <a href="{% url 'blog:post_detail' post.id %}">Читать полный текст</a>
   {% endfor %}                
 {% endblock %}
